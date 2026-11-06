@@ -1,0 +1,2 @@
+ef45bfc734a6d2f8d6ab5ad2f5e3b79f4c6798085dc81681e462f4113e29b8d3  dist/BelgindoOfficeMessenger.exe
+46c48ce5782aea2539c8df59b992fc8439e5e955834b4da3072576ed0f0e4a3c  dist/BelgindoOfficeMessenger_Setup_v1.0.0.exe

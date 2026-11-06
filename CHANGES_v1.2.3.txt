@@ -1,0 +1,65 @@
+Belgindo Office Messenger — Catatan Perubahan v1.2.3
+=====================================================
+
+Di atas v1.2.2. Versi build tertulis di menu Bantuan > Tentang Belgindo
+sebagai "v1.0.0 (rev 1.2.3)". Isi catatan ini hanya hasil kroscek laporan
+"Enter masih membuat baris baru, Ctrl+Enter tidak berfungsi apa-apa".
+
+
+== 1. ENTER AKHIRNYA MENGIRIM, CTRL+ENTER AKHIRNYA GANTI BARIS ==
+
+Penyebabnya ditemukan dengan memuat halaman chat asli di MSHTML (WebView yang
+sama dipakai aplikasi) lalu mengirim tombol betulan ke jendela itu:
+
+- Di hosting ini IE TIDAK mengirim event "keydown" ke halaman untuk tombol
+  biasa — yang datang hanya "keypress". Semua logika Enter/Ctrl+Enter di
+  v1.2.2 terpasang di keydown, jadi tidak pernah jalan: Enter jatuh ke
+  tindakan bawaan IE (menyisip baris baru) dan Ctrl+Enter tidak melakukan
+  apa-apa. Persis seperti yang dilaporkan.
+- Sekarang satu penangan (enterKey) dipakai oleh keydown DAN keypress, jadi
+  aplikasi tidak bergantung lagi pada event mana yang ternyata dikirim.
+  Satu ketukan hanya dijalankan sekali: penahan 120 ms menolak event kedua
+  dari tombol yang sama, sehingga pesan tidak terkirim dobel.
+- newLine() (Ctrl+Enter) tidak lagi menyerah kalau document.execCommand
+  gagal: baris baru disisip langsung ke DOM sebagai cadangan, dan tindakan
+  bawaan IE selalu dibatalkan.
+
+Verifikasi di MSHTML asli (bukan hanya pembacaan kode):
+  teks "halo 168" di kolom balas + satu keypress Enter
+    -> kolom balas kosong, satu balon baru muncul, default dibatalkan.
+  teks "baris1" + Ctrl+Enter
+    -> "baris1<br>" + satu baris kosong siap diketik, default dibatalkan.
+
+
+== 2. SEMUA SINYAL HALAMAN -> GO DIPULIHKAN ==
+
+Cacat lain yang ikut muncul dari kroscek yang sama, dan berdampak lebih luas:
+
+- WebView IE memperlakukan bagian setelah "app://" sebagai nama host, sehingga
+  URL selalu tiba dengan garis miring penutup: "app://ready" tiba sebagai
+  "app://ready/" dan "app://copy?p=..." sebagai "app://copy/?p=...".
+  Perbandingan di Go memakai tanda sama dengan, jadi TIDAK ADA sinyal yang
+  pernah dikenali: halaman dianggap tidak pernah siap (jembatan Go -> halaman
+  tidak mengalir) dan tombol emoji, lampiran, batal, bersihkan obrolan, salin
+  teks serta buka berkas tidak bereaksi.
+- Ditambahkan penormal appURL() (internal/ui/chatpage.go) yang dipakai di
+  ketiga penerima navigasi: jendela perorangan, jendela grup, dan panel emoji.
+  Bentuk dengan dan tanpa garis miring sama-sama dikenali, termasuk
+  "app://emoji/<kode>" yang memang punya path.
+- Kunci regression di internal/ui/appurl_test.go.
+
+
+== 3. TIDAK BERUBAH ==
+
+Aturan yang sudah jalan di v1.2.2 tetap utuh: isi ruang chat bertahan dan
+reset setiap hari, jendela percakapan lebar -15% / tinggi -10%, kursor
+pengetikan di kiri, balon pesan sendiri tampil seketika, dan ganti kata sandi
+tetap sukarela.
+
+
+== ISI PAKET ==
+
+BelgindoOfficeMessenger.exe                 ef45bfc734a6d2f8d6ab5ad2f5e3b79f4c6798085dc81681e462f4113e29b8d3
+BelgindoOfficeMessenger_Setup_v1.0.0.exe    46c48ce5782aea2539c8df59b992fc8439e5e955834b4da3072576ed0f0e4a3c
+
+Pasang installer, lalu pastikan Tentang Belgindo menampilkan "rev 1.2.3".

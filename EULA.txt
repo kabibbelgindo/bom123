@@ -1,0 +1,29 @@
+END USER LICENSE AGREEMENT
+BELGINDO OFFICE MESSENGER
+
+Versi 1.0.0
+
+Perjanjian Lisensi Pengguna Akhir ini mengatur penggunaan Belgindo Office Messenger ("Perangkat Lunak"). Dengan melanjutkan instalasi, Anda menyatakan telah membaca dan menyetujui ketentuan berikut.
+
+1. HAK PENGGUNAAN
+Anda diberikan hak terbatas, non-eksklusif, dan tidak dapat dialihkan untuk memasang serta menggunakan Perangkat Lunak pada komputer yang Anda miliki atau kelola untuk keperluan komunikasi internal yang sah.
+
+2. PENGGUNAAN YANG DILARANG
+Anda tidak boleh menggunakan Perangkat Lunak untuk kegiatan yang melanggar hukum, mengganggu jaringan atau perangkat pihak lain, menyebarkan malware, atau mengakses data tanpa izin.
+
+3. PRIVASI DAN DATA
+Perangkat Lunak menggunakan komunikasi peer-to-peer pada jaringan lokal. Nama tampilan, status, dan data lain yang Anda bagikan melalui aplikasi dapat terlihat oleh pengguna lain pada jaringan yang sama. Riwayat percakapan dan pengaturan tertentu disimpan secara lokal pada komputer Anda.
+
+4. PENOLAKAN JAMINAN
+Perangkat Lunak disediakan "sebagaimana adanya" tanpa jaminan tersurat maupun tersirat. Pengguna bertanggung jawab untuk melakukan pencadangan data dan memastikan penggunaan Perangkat Lunak sesuai kebijakan organisasi serta hukum yang berlaku.
+
+5. PEMBATASAN TANGGUNG JAWAB
+Sejauh diizinkan oleh hukum, pengembang tidak bertanggung jawab atas kehilangan data, gangguan jaringan, atau kerugian tidak langsung yang timbul dari penggunaan atau ketidakmampuan menggunakan Perangkat Lunak.
+
+6. PENGAKHIRAN
+Hak penggunaan berakhir apabila Anda melanggar ketentuan ini. Setelah pengakhiran, Anda harus menghentikan penggunaan dan menghapus salinan Perangkat Lunak yang berada dalam kendali Anda.
+
+7. PENERIMAAN
+Dengan memilih "Saya Setuju" pada installer, Anda menyetujui perjanjian ini. Jika Anda tidak menyetujui ketentuan ini, pilih "Saya Tidak Setuju" dan batalkan instalasi.
+
+© 2026 Belgindo. Semua hak dilindungi.
